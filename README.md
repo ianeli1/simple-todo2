@@ -8,7 +8,7 @@ This project serves as my first full stack webapp :)
 
 ## Screenshots
 
-todo
+[Screenshot](simpletodo.png)
 
 ## Software used
 
