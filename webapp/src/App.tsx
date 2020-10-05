@@ -209,16 +209,6 @@ function App() {
       <Paper className="AppInner">
         <div className="AppTitle">
           <Typography variant="h3">Simple-ToDo 2</Typography>
-          <IconButton
-            onClick={() =>
-              textDialog("Create a new task", "", (text) => createEntry(text))
-            }
-          >
-            <Add />
-          </IconButton>
-          <IconButton onClick={async () => setTodos(await fetchEntries())}>
-            <Refresh />
-          </IconButton>
         </div>
         <div>
           {todos.map((entry) => (
@@ -242,6 +232,19 @@ function App() {
           ))}
         </div>
       </Paper>
+
+      <div className="EpicButtons">
+        <IconButton
+          onClick={() =>
+            textDialog("Create a new task", "", (text) => createEntry(text))
+          }
+        >
+          <Add />
+        </IconButton>
+        <IconButton onClick={async () => setTodos(await fetchEntries())}>
+          <Refresh />
+        </IconButton>
+      </div>
     </Container>
   );
 }
