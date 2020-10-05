@@ -2,6 +2,7 @@ import express from "express";
 import { MikroORM, RequestContext } from "@mikro-orm/core";
 import config from "./mikro-orm.config";
 import { ToDo } from "./entities/ToDo";
+import cors from "cors";
 
 const app = express();
 const port = 5000;
@@ -12,6 +13,7 @@ const main = async () => {
   const todoRepo = orm.em.getRepository(ToDo);
   await orm.getMigrator().up();
   app.use(express.json());
+  app.use(cors());
   app.use((_req, _res, next) => RequestContext.create(orm.em, next));
 
   app.get("/todos", async (_req, res) => {
